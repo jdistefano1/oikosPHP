@@ -1,5 +1,5 @@
 <?php
-require_once('vendor/autoload.php');
+require_once('../vendor/stripe/autoload.php');
 
 $stripe = array(
   "secret_key"      => "sk_test_vrlJzvYx3uPbyLVsGboMg5h0",
