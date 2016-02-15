@@ -9,5 +9,6 @@
       'card'  => $token
   ));
 
-
+  var_dump($customer->keys());
+  
   echo '<h1>Successfully charged $50.00!</h1>';
