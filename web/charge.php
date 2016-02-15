@@ -3,5 +3,11 @@
 
   $token  = $_POST['stripeToken'];
 
+  
+  $customer = Stripe_Customer::create(array(
+      'email' => 'customer@example.com',
+      'card'  => $token
+  ));
+
 
   echo '<h1>Successfully charged $50.00!</h1>';
