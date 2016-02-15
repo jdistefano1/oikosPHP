@@ -6,6 +6,8 @@
           data-description="Rental Payment"
 		  data-name="Oikos Homes"
           data-amount="25000"
-          data-locale="auto">
+          data-locale="auto"
+		  data-label="Make Payment"
+		  >
   </script>
 </form>
