@@ -37,7 +37,7 @@ function pippin_stripe_render_options_page() {
 						</th>
 						<td>
 							<input id="stripe_settings[live_secret_key]" name="stripe_settings[live_secret_key]" type="text" class="regular-text" value="<?php echo $stripe_options['live_secret_key']; ?>"/>
-							<label class="description" for="stripe_settings[live_secret_key]"><?php _e('Paste your live secret key.', 'pippin_stripe'); ?></label>
+							<label class="description" for="stripe_settings[live_secret_key]"><?php _e('sk_live_2NqSWx7mh0D2TzWdaY9x1djI', 'pippin_stripe'); ?></label>
 						</td>
 					</tr>
 					<tr valign="top">	
@@ -46,7 +46,7 @@ function pippin_stripe_render_options_page() {
 						</th>
 						<td>
 							<input id="stripe_settings[live_publishable_key]" name="stripe_settings[live_publishable_key]" type="text" class="regular-text" value="<?php echo $stripe_options['live_publishable_key']; ?>"/>
-							<label class="description" for="stripe_settings[live_publishable_key]"><?php _e('Paste your live publishable key.', 'pippin_stripe'); ?></label>
+							<label class="description" for="stripe_settings[live_publishable_key]"><?php _e('pk_live_ZhkNNLtLSOX9aoJJWHZvx2oy', 'pippin_stripe'); ?></label>
 						</td>
 					</tr>
 					<tr valign="top">	
@@ -55,7 +55,7 @@ function pippin_stripe_render_options_page() {
 						</th>
 						<td>
 							<input id="stripe_settings[test_secret_key]" name="stripe_settings[test_secret_key]" type="text" class="regular-text" value="<?php echo $stripe_options['test_secret_key']; ?>"/>
-							<label class="description" for="stripe_settings[test_secret_key]"><?php _e('Paste your test secret key.', 'pippin_stripe'); ?></label>
+							<label class="description" for="stripe_settings[test_secret_key]"><?php _e('sk_test_vrlJzvYx3uPbyLVsGboMg5h0', 'pippin_stripe'); ?></label>
 						</td>
 					</tr>
 					<tr valign="top">	
@@ -64,7 +64,7 @@ function pippin_stripe_render_options_page() {
 						</th>
 						<td>
 							<input id="stripe_settings[test_publishable_key]" name="stripe_settings[test_publishable_key]" class="regular-text" type="text" value="<?php echo $stripe_options['test_publishable_key']; ?>"/>
-							<label class="description" for="stripe_settings[test_publishable_key]"><?php _e('Paste your test publishable key.', 'pippin_stripe'); ?></label>
+							<label class="description" for="stripe_settings[test_publishable_key]"><?php _e('pk_test_lXReVaKu10izIVP0RRmg0y5q', 'pippin_stripe'); ?></label>
 						</td>
 					</tr>
 				</tbody>
