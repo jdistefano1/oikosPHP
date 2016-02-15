@@ -5,7 +5,7 @@
           data-key="<?php echo $stripe['publishable_key']; ?>"
           data-description="Rental Payment"
 		  data-name="Oikos Homes"
-          data-amount="5000"
+          data-amount="25000"
           data-locale="auto">
-		  Data-image = ./logo.png</script>
+  </script>
 </form>
