@@ -1,8 +1,8 @@
-<?php require_once('./config.php'); ?>
+<?php require_once('../config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Oikos Homes</title>
+    <title>Wilde Things</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
