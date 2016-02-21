@@ -1,29 +1,41 @@
-<?php require_once('./config.php'); ?>
-
-<form action="charge.php" method="post">
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<?php echo $stripe['publishable_key']; ?>"
-          data-description="Access for a year"
-          data-amount="5000"
-          data-locale="auto"></script>
-</form>
-
-
 <?php
-  require_once('./config.php');
+require_once('./header.php');
 
-  $token  = $_POST['stripeToken'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $error = false;
 
-  $customer = \Stripe\Customer::create(array(
-      'email' => 'customer@example.com',
-      'card'  => $token
-  ));
+  try {
 
-  $charge = \Stripe\Charge::create(array(
-      'customer' => $customer->id,
-      'amount'   => 5000,
+    if (!isset($_POST['stripeToken'])) throw new Exception("The Stripe Token was not generated correctly");
+
+    $charge = \Stripe\Charge::create(array(
+      'source'     => $_POST['stripeToken'],
+      'amount'   => 53500,
       'currency' => 'usd'
-  ));
+    ));
 
-  echo '<h1>Successfully charged $50.00!</h1>';
-?>
+  } catch (Exception $e) {
+    $error = $e->getMessage();
+  }
+
+  if (!$error) {
+    $wildeQuotes = array(
+      "A little sincerity is a dangerous thing, and a great deal of it is absolutely fatal.",
+      "Always forgive your enemies; nothing annoys them so much.",
+      "America is the only country that went from barbarism to decadence without civilization in between.",
+      "I think that God in creating Man somewhat overestimated his ability.",
+      "I am not young enough to know everything.",
+      "Fashion is a form of ugliness so intolerable that we have to alter it every six months.",
+      "Most modern calendars mar the sweet simplicity of our lives by reminding us that each day that passes is the anniversary of some perfectly uninteresting event.",
+      "Scandal is gossip made tedious by morality."
+      );
+
+    echo "<h1>Here's your quote!</h1>";
+    echo "<h2>".$wildeQuotes[array_rand($wildeQuotes)]."</h2>";
+  }
+  else {
+    echo "<div class=\"error\">".$error."</div>";
+    require_once('./payment_form.php');
+  }
+}
+require_once('./footer.php');
