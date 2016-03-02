@@ -1,16 +1,11 @@
-AmountToFind = Request.form("amount")
-
-
-<h3>Make a Payment</h3>
+<h3>Sign up and buy a quote now! Only $535.00!</h3>
 <form action="charge.php" method="POST">
 	<input type="password" name="password" placeholder="Password" />
-	<input type="amount" name="amount" placeholder="amount" />
-	
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<?php echo $stripe['publishable_key']; ?>"
-    data-description="Oikos Homes Payment"
-    data-amount=AmountToFind>
+    data-description="One Wilde quote"
+    data-amount="53500">
   </script>
 </form>
 <hr />
