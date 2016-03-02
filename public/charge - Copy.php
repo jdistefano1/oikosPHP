@@ -6,13 +6,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $error = false;
 
   try {
-    <input type="amount" name="amount" value="<?php echo $amount->id ?>" />
-  
-  
+
     if (isset($_POST['customer_id'])) {
       $charge = \Stripe\Charge::create(array(
         'customer'    => $_POST['customer_id'],
-        'amount'      => $_POST['$amount'],
+        'amount'      => 53500,
         'currency'    => 'usd',
         'description' => 'Single quote purchase after login'));
     }
@@ -32,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       $charge = \Stripe\Charge::create(array(
         'customer'    => $customer->id,
-        'amount'      => $_POST['$amount'],
+        'amount'      => 53500,
         'currency'    => 'usd',
         'description' => 'Single quote purchase'));
     }
