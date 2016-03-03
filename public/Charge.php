@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['customer_id'])) {
       $charge = \Stripe\Charge::create(array(
         'customer'    => $_POST['customer_id'],
-        'amount'      => 53500,
+        'amount'      => $amount,
         'currency'    => 'usd',
         'description' => 'Single quote purchase after login'));
     }
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       $charge = \Stripe\Charge::create(array(
         'customer'    => $customer->id,
-        'amount'      => 53500,
+        'amount'      => $amount,
         'currency'    => 'usd',
         'description' => 'Single quote purchase'));
     }
