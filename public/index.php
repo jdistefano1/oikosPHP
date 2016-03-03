@@ -64,7 +64,7 @@ if ( ($_SERVER['REQUEST_METHOD'] != 'POST') || $error)
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<?php echo $stripe['publishable_key']; ?>"
       data-description="Oikos Homes Payment"
-      data-amount="<?php echo $amount; ?> 
+      data-amount="<?php echo $amount; ?>"
     </script>
   </form>
 <?php
