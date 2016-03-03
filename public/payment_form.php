@@ -1,7 +1,3 @@
-<?php
-AmountToFind = Request.form("amount");
-?>
-
 <h3>Make a Payment</h3>
 <form action="charge.php" method="POST">
 	
@@ -12,7 +8,7 @@ AmountToFind = Request.form("amount");
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<?php echo $stripe['publishable_key']; ?>"
     data-description="Oikos Homes Payment"
-    data-amount=<?php echo AmountToFind ;?>
+    data-amount=<?php echo $amount ;?>
   </script>
 </form>
 <hr />
