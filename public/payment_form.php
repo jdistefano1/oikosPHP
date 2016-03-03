@@ -1,6 +1,6 @@
-<script>
-AmountToFind = Request.form("amount")
-</Script>
+<?php
+AmountToFind = Request.form("amount");
+?>
 
 <h3>Make a Payment</h3>
 <form action="charge.php" method="POST">
