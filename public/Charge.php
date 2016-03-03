@@ -7,35 +7,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   try {
 
-    if (isset($_POST['customer_id'])) {
+    //if (isset($_POST['customer_id'])) {
       $charge = \Stripe\Charge::create(array(
         'customer'    => $_POST['customer_id'],
         'amount'      => $amount,
         'currency'    => 'usd',
         'description' => 'Single quote purchase after login'));
-    }
-    else if (isset($_POST['stripeToken'])) {
+   // }
+   // else if (isset($_POST['stripeToken'])) {
 
       // Simple uniqueness check on the email address
-      $existing_customer = get_customer($_POST['stripeEmail']);
+  //    $existing_customer = get_customer($_POST['stripeEmail']);
 
-      if ($existing_customer) throw new Exception("That e-mail address already exists");
+  //    if ($existing_customer) throw new Exception("That e-mail address already exists");
 
-      $customer = \Stripe\Customer::create(array(
-        'source'     => $_POST['stripeToken'],
-        'email'    => $_POST['stripeEmail']
-        ));
+ //     $customer = \Stripe\Customer::create(array(
+ //       'source'     => $_POST['stripeToken'],
+ //       'email'    => $_POST['stripeEmail']
+//        ));
 
-      create_customer($_POST['stripeEmail'], $_POST['password'], $customer->id);
+ //     create_customer($_POST['stripeEmail'], $_POST['password'], $customer->id);
 
-      $charge = \Stripe\Charge::create(array(
-        'customer'    => $customer->id,
-        'amount'      => $amount,
-        'currency'    => 'usd',
-        'description' => 'Single quote purchase'));
-    }
-    else {
-      throw new Exception("The Stripe Token or customer was not generated correctly");
+  //    $charge = \Stripe\Charge::create(array(
+  //      'customer'    => $customer->id,
+  //      'amount'      => $amount,
+  //      'currency'    => 'usd',
+  //      'description' => 'Single quote purchase'));
+  //  }
+ //   else {
+  //    throw new Exception("The Stripe Token or customer was not generated correctly");
     }
   } catch (Exception $e) {
     $error = $e->getMessage();
