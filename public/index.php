@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Wilde Things</title>
+    <title>Oikos Homes</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
   <div id="container">
+  <input name="amount" value="<?php echo $amount->amount ?>" />
 <?php
 require_once('vendor/autoload.php');
 $stripe = array(
