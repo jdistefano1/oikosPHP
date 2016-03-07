@@ -4,10 +4,17 @@ $amountErr = "";
 $amount = "";
 
 
+ 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $error = false;
  
+  if (empty($_POST["amount"])) {
+	Payment Amount: <input type="text" name="amount">
+	<span class="error">* <?php echo $amountErr;?></span>
+	<br><br>
+
+  } else {
   
 
   try {
@@ -43,5 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "<div class=\"error\">".$error."</div>";
     require_once('./payment_form.php');
   }
+ }
 }
 require_once('./footer.php');
