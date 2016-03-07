@@ -1,42 +1,19 @@
 <?php
 require_once('./header.php');
-require_once('./db.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $error = false;
 
   try {
-     <input type="hidden" name="amount" value="<?php echo $amount->amount ?>" />
-    //if (isset($_POST['customer_id'])) {
-      $charge = \Stripe\Charge::create(array(
-        'customer'    => $_POST['customer_id'],
-        'amount'      => $amount,
-        'currency'    => 'usd',
-        'description' => 'Single quote purchase after login'));
-   // }
-   // else if (isset($_POST['stripeToken'])) {
 
-      // Simple uniqueness check on the email address
-  //    $existing_customer = get_customer($_POST['stripeEmail']);
+    if (!isset($_POST['stripeToken'])) throw new Exception("The Stripe Token was not generated correctly");
 
-  //    if ($existing_customer) throw new Exception("That e-mail address already exists");
+    $charge = \Stripe\Charge::create(array(
+      'source'     => $_POST['stripeToken'],
+      'amount'   => 53500,
+      'currency' => 'usd'
+    ));
 
- //     $customer = \Stripe\Customer::create(array(
- //       'source'     => $_POST['stripeToken'],
- //       'email'    => $_POST['stripeEmail']
-//        ));
-
- //     create_customer($_POST['stripeEmail'], $_POST['password'], $customer->id);
-
-  //    $charge = \Stripe\Charge::create(array(
-  //      'customer'    => $customer->id,
-  //      'amount'      => $amount,
-  //      'currency'    => 'usd',
-  //      'description' => 'Single quote purchase'));
-  //  }
- //   else {
-  //    throw new Exception("The Stripe Token or customer was not generated correctly");
-    }
   } catch (Exception $e) {
     $error = $e->getMessage();
   }
