@@ -7,7 +7,7 @@
   </head>
   <body>
   <div id="container">
-  <input name="amount" value="<?php echo $amount->amount ?>" />
+ 
 <?php
 require_once('vendor/autoload.php');
 $stripe = array(

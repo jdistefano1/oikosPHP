@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $error = false;
 
   try {
-
+     <input type="hidden" name="amount" value="<?php echo $amount->amount ?>" />
     //if (isset($_POST['customer_id'])) {
       $charge = \Stripe\Charge::create(array(
         'customer'    => $_POST['customer_id'],
