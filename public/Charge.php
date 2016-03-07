@@ -1,8 +1,14 @@
 <?php
 require_once('./header.php');
+$amountErr = "";
+$amount = "";
+
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $error = false;
+ 
+  
 
   try {
 
