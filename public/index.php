@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Oikos Homes</title>
+    <title>Wilde Things</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
@@ -15,8 +15,6 @@ $stripe = array(
   );
 \Stripe\Stripe::setApiKey($stripe['secret_key']);
 
-
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $error = false;
 
@@ -26,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $charge = \Stripe\Charge::create(array(
       'source'     => $_POST['stripeToken'],
-      'amount'   => echo $amount;,
+      'amount'   => 53500,
       'currency' => 'usd'
     ));
 
@@ -56,19 +54,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if ( ($_SERVER['REQUEST_METHOD'] != 'POST') || $error)
 { ?>
-  <h2>Oikos Homes LLC.</h2>
-  <h3>Oikos Homes Payment</h3>
+  <h2>Wilde Things</h2>
+  <h3>Purchase a quote by Oscar Wilde today! Only $535! Limited supply and going fast, buy now!!</h3>
   <form action="index.php" method="POST">
-  	<input type="amount" name="amount" placeholder="amount" />
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<?php echo $stripe['publishable_key']; ?>"
-      data-description="Oikos Homes Payment"
-      data-amount="<?php echo $amount; ?>"
+      data-description="One Wilde quote"
+      data-amount="53500">
     </script>
   </form>
 <?php
-//
 }
 ?>
   </div><!-- #container -->
