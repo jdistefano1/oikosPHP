@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $charge = \Stripe\Charge::create(array(
       'source'     => $_POST['stripeToken'],
-      'amount'   => $_POST['amount'],
+      'amount'   => 53500,
       'currency' => 'usd'
     ));
 
