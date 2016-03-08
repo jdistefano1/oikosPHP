@@ -2,13 +2,6 @@
 require_once('./header.php');
 
 
- if (empty($_POST["amount"])) {
-	<span class="error">Need the Amount<?php echo $amountErr;?></span>
-	<br><br>
-
-  } else {
- 
-
  
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -19,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $charge = \Stripe\Charge::create(array(
       'source'     => $_POST['stripeToken'],
-      'amount'   => $_POST['amount'],
+       data-amount="<?php echo $_POST['amount']; ?>">
       'currency' => 'usd'
     ));
 
@@ -47,5 +40,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once('./payment_form.php');
   }
 }
-  }
 require_once('./footer.php');
