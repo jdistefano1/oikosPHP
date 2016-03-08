@@ -1,18 +1,16 @@
 <?php
 require_once('./header.php');
 
-
- 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $error = false;
+
   try {
 
     if (!isset($_POST['stripeToken'])) throw new Exception("The Stripe Token was not generated correctly");
 
     $charge = \Stripe\Charge::create(array(
       'source'     => $_POST['stripeToken'],
-       data-amount="<?php echo $_POST['amount']; ?>">
+      'amount'   => $_POST['amount'],
       'currency' => 'usd'
     ));
 
