@@ -4,19 +4,17 @@ $amountErr = "";
 $amount = "";
 
 
+ if (empty($_POST["amount"])) {
+	<span class="error">Need the Amount<?php echo $amountErr;?></span>
+	<br><br>
+
+  } else {
+ 
+
  
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $error = false;
- 
-  if (empty($_POST["amount"])) {
-	Payment Amount: <input type="text" name="amount">
-	<span class="error">* <?php echo $amountErr;?></span>
-	<br><br>
-
-  } else {
-  
-
   try {
 
     if (!isset($_POST['stripeToken'])) throw new Exception("The Stripe Token was not generated correctly");
@@ -50,6 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "<div class=\"error\">".$error."</div>";
     require_once('./payment_form.php');
   }
- }
 }
+  }
 require_once('./footer.php');
